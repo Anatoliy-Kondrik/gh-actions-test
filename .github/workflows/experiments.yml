@@ -12,11 +12,17 @@ on:
       flag2:
         required: true
         type: boolean    
-
+      username:
+        description: 'A username passed from the caller workflow'
+        default: 'john-doe'
+        required: false
+        type: string
+        
 env:
   production: ${{ inputs.production }}  
   flag1: ${{ inputs.flag1 }}
   flag2: ${{ inputs.flag2 }}
+  username: ${{ inputs.username }}
 
 jobs:
   contexts:
@@ -27,9 +33,20 @@ jobs:
           echo production ${{ env.production }}
           echo env.flag1 ${{ env.flag1 }}
           echo env.flag2 ${{ env.flag2 }}
+          echo env.username ${{ env.username }}
+          
           echo inputs.production ${{ inputs.production }}
           echo inputs.flag1 ${{ inputs.flag1 }}
           echo inputs.flag2 ${{ inputs.flag2 }}
+          echo inputs.username ${{ inputs.username }}
+          
+          
+          echo github.event.inputs.production ${{ github.event.inputs.production }}
+          echo github.event.inputs.flag1 ${{ github.event.inputs.flag1 }}
+          echo github.event.inputs.flag2 ${{ github.event.inputs.flag2 }}
+          echo github.event.inputs.username ${{ github.event.inputs.username }}
+          
+          
           if [ ${{ env.production }} ]; then
             echo 1-production...
             echo 1-PRODUCTION
