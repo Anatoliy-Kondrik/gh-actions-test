@@ -53,11 +53,14 @@ jobs:
           echo flag1: ${{ env.flag1 }}
           echo env.flag1: ${{ env.flag1 }}
           echo env.flag1 == true: ${{ env.flag1 == true }}
-          if [ ${{ env.flag1 }} ]; then
-            echo production...
+          cond=${{ env.flag1 }}
+          echo cond "$cond"
+          if [ ${cond} ]; then
+            echo Y Production...
           else
-            echo develop...
+            echo N develop...
           fi
+          echo cond "$cond"
           echo completed.          
           echo flag1: ${{ env.flag1 }}
           echo env.flag1: ${{ env.flag1 }}
