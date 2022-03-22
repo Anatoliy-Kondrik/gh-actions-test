@@ -136,7 +136,7 @@ jobs:
       user_name: "SBERP"
       flag1: true
       flag2: false
-      dir: dir1
+      working-directory: dir1
           
 
   call_child_flow2:
@@ -145,5 +145,5 @@ jobs:
       user_name: "GAZP"
       flag1: false
       flag2: true
-      dir: dir2
+      working-directory: dir2
   
