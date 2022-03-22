@@ -25,8 +25,11 @@ jobs:
       - run: |
           pwd
           echo production: ${{ env.production }}
-          echo flag1: ${{ env.flag1 }}
-          echo flag2: ${{ env.flag2 }}
+          echo env.flag1: ${{ env.flag1 }}
+          echo env.flag2: ${{ env.flag2 }}
+          echo inputs.production: ${{ inputs.production }}
+          echo inputs.flag1: ${{ inputs.flag1 }}
+          echo inputs.flag2: ${{ inputs.flag2 }}
           if [ ${{ env.production }} ]; then
             echo 1-production...
             echo 1-PRODUCTION
