@@ -129,9 +129,12 @@ jobs:
           fi
           mkdir ./dir2
           
+          ls
+          
           
   call_child_flow1:
     uses: ./.github/workflows/called_flow.yml
+    needs: [job1]
     with:
       user_name: "SBERP"
       flag1: true
@@ -147,6 +150,7 @@ jobs:
 
   call_child_flow2:
     uses: ./.github/workflows/called_flow.yml
+    needs: [job1]
     with:
       user_name: "GAZP"
       flag1: false
