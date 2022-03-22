@@ -6,9 +6,17 @@ on:
       production:
         required: true
         type: boolean    
+      flag1:
+        required: true
+        type: boolean    
+      flag2:
+        required: true
+        type: boolean    
 
 env:
   production: ${{ inputs.production }}  
+  flag1: ${{ inputs.flag1 }}
+  flag2: ${{ inputs.flag2 }}
 
 jobs:
   contexts:
@@ -17,6 +25,8 @@ jobs:
       - run: |
           pwd
           echo production: ${{ env.production }}
+          echo flag1: ${{ env.flag1 }}
+          echo flag2: ${{ env.flag2 }}
           if [ ${{ env.production }} ]; then
             echo 1-production...
             echo 1-PRODUCTION
