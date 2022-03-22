@@ -121,12 +121,13 @@ jobs:
             echo delete dir1 dir...
             rm -r ./dir1
           fi
-          mkdir ./dir1
           
           if [ -d "./dir2 ]; then
             echo delete dir2 dir...
             rm -r ./dir2
           fi
+
+          mkdir ./dir1
           mkdir ./dir2
           
           ls
