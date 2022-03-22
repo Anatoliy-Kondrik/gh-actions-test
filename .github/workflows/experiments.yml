@@ -19,10 +19,10 @@ on:
         type: string
         
 env:
-  production: ${{ inputs.production }}  
-  flag1: ${{ inputs.flag1 }}
-  flag2: ${{ inputs.flag2 }}
-  username: ${{ inputs.username }}
+  production: ${{ github.event.inputs.production }}  
+  flag1: ${{ github.event.inputs.flag1 }}
+  flag2: ${{ github.event.inputs.flag2 }}
+  username: ${{ github.event.inputs.username }}
 
 jobs:
   contexts:
