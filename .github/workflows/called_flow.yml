@@ -27,6 +27,11 @@ env:
   flag22: ${{ inputs.flag2 }}
 #   dir: ${{ inputs.dir }}
 
+defaults:
+  run:
+    working-directory: dir1
+
+
 # defaults:
 #   run:
 #     working-directory: "${dir}"
