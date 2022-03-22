@@ -12,7 +12,7 @@ env:
   user_name2: ${{ inputs.user_name }}
 
 jobs:
-  build:
+  contexts:
     runs-on: ubuntu-latest
     steps:
       - run: |
