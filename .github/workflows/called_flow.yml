@@ -37,3 +37,10 @@ jobs:
           echo 
           echo github.event.inputs.flag2 ${{ github.event.inputs.flag2 }}
           echo inputs.flag2 ${{ inputs.flag2 }}
+          echo 
+          echo inputs.flag1 ${{ inputs.flag1 }}
+          echo inputs.flag1 == true: ${{ inputs.flag1 == true }}
+          echo inputs.flag1 == false: ${{ inputs.flag1 == false }}
+          echo inputs.flag1 == "true": ${{ inputs.flag1 == "true" }}
+          echo inputs.flag1 == "false": ${{ inputs.flag1 == "false" }}
+          echo inputs.flag1 ${{ inputs.flag1 }}
