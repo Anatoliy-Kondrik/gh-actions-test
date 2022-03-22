@@ -6,6 +6,9 @@ on:
       user_name:
         required: true
         type: string  
+      dir:
+        required: true
+        type: string  
       flag1: 
         required: true
         type: boolean  
@@ -15,7 +18,7 @@ on:
 
 defaults:
  run:
-  working-directory: special_work_dir
+  working-directory: "$dir" #special_work_dir
 
 env:
   user_name1: ${{ github.event.inputs.user_name }}
