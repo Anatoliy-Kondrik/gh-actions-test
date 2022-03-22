@@ -127,3 +127,6 @@ jobs:
           echo ....0
           ls
           echo ....1
+          cd ./${{ env.dir }}
+          pwd
+          echo ....2
