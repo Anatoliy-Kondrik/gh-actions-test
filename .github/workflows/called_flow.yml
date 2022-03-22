@@ -41,8 +41,8 @@ jobs:
           echo inputs.flag1 ${{ inputs.flag1 }}
           echo inputs.flag1 == true: ${{ inputs.flag1 == true }}
           echo inputs.flag1 == false: ${{ inputs.flag1 == false }}
-          echo inputs.flag1 == true: ${{ inputs.flag1 == y }}
-          echo inputs.flag1 == false: ${{ inputs.flag1 == n }}
+          echo inputs.flag1 == true: ${{ inputs.flag1 == True }}
+          echo inputs.flag1 == false: ${{ inputs.flag1 == False }}
           echo ${{ inputs.flag1 == "true" }}
           echo ${{ inputs.flag1 == "false" }}
           echo inputs.flag1 ${{ inputs.flag1 }}
@@ -50,8 +50,8 @@ jobs:
           echo inputs.flag2 ${{ inputs.flag2 }}
           echo inputs.flag2 == true: ${{ inputs.flag2 == true }}
           echo inputs.flag2 == false: ${{ inputs.flag2 == false }}
-          echo inputs.flag2 == true: ${{ inputs.flag2 == y }}
-          echo inputs.flag2 == false: ${{ inputs.flag2 == n }}
+          echo inputs.flag2 == true: ${{ inputs.flag2 == True }}
+          echo inputs.flag2 == false: ${{ inputs.flag2 == Frue }}
           echo ${{ inputs.flag2 == "true" }}
           echo ${{ inputs.flag2 == "false" }}
           echo inputs.flag2 ${{ inputs.flag2 }}
