@@ -16,12 +16,6 @@ on:
         required: true
         type: boolean 
 
-defaults:
-  run:
-    working-directory: "${{ inputs.dir }}"
-    #working-directory: ${{ inputs.dir }} #  Unrecognized named-value: 'inputs'. Located at position 1 within expression: inputs.dir
-#   working-directory: ${dir} #special_work_dir
-
 env:
   user_name1: ${{ github.event.inputs.user_name }}
   user_name2: ${{ inputs.user_name }}
@@ -31,6 +25,15 @@ env:
   flag12: ${{ inputs.flag1 }}
   flag21: ${{ github.event.inputs.flag2 }}
   flag22: ${{ inputs.flag2 }}
+  dir: ${{ inputs.dir }}
+
+defaults:
+  run:
+    working-directory: "${{ env.dir }}"
+#   working-directory: "${{ inputs.dir }}"  # Unrecognized named-value: 'inputs'. Located at position 1 within expression: inputs.dir
+#   working-directory: ${{ inputs.dir }}   # Unrecognized named-value: 'inputs'. Located at position 1 within expression: inputs.dir
+#   working-directory: ${dir}               # special_work_dir
+
 
 jobs:
   contexts:
