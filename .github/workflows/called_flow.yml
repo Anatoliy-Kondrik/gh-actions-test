@@ -32,6 +32,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          pwd
           echo github.event.inputs.user_name ${{ github.event.inputs.user_name }}
           echo inputs.user_name ${{ inputs.user_name }}
           echo env.user_name1 ${{ env.user_name1 }}
