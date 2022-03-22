@@ -154,7 +154,7 @@ jobs:
     uses: ./.github/workflows/called_flow.yml
     needs: [job1]
     with:
-      user_name: "GAZP"
+      user_name: ${{ env.username }}    # "GAZP"
       flag1: false
       flag2: true
       dir: dir2
