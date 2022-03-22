@@ -68,6 +68,14 @@ jobs:
             echo env.flag1 No develop...
           fi
           echo cond "$cond"
+          echo 
+          if [ ${{ env.flag1 }} == "true" ]; then
+            echo env.flag1 Yes 2 Production...
+          else
+            echo env.flag1 No 2 develop...
+          fi
+          echo cond "$cond"
+
 
 
           echo completed.          
