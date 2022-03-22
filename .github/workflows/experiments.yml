@@ -1,0 +1,85 @@
+name: experiments
+
+on:
+  workflow_dispatch:
+    inputs:
+      production:
+        required: true
+        type: boolean    
+
+env:
+  production: ${{ inputs.production }}  
+
+jobs:
+  contexts:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          pwd
+          echo production: ${{ env.production }}
+          if [ ${{ env.production }} ]; then
+            echo 1-production...
+            echo 1-PRODUCTION
+            echo 1-PRODUCTION
+          else
+            echo 1-develop...
+            echo 1-DEVELOP
+            echo 1-DEVELOP
+          fi          
+
+
+          if [ ${{ env.production }} ]; then
+            echo 2-production...
+            echo 2-PRODUCTION
+            echo 2-PRODUCTION
+          else
+            echo 2-develop...
+            echo 2-DEVELOP
+            echo 2-DEVELOP
+          fi      
+          
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          pwd
+          echo production: ${{ env.production }}
+          if [ ${{ env.production }} ]; then
+            echo 1-production...
+            echo 1-PRODUCTION
+            echo 1-PRODUCTION
+          else
+            echo 1-develop...
+            echo 1-DEVELOP
+            echo 1-DEVELOP
+          fi          
+
+
+          if [ ${{ env.production }} ]; then
+            echo 2-production...
+            echo 2-PRODUCTION
+            echo 2-PRODUCTION
+          else
+            echo 2-develop...
+            echo 2-DEVELOP
+            echo 2-DEVELOP
+          fi      
+
+          function func_export_ipa {
+            echo func_export_ipa ($1, $2)
+          }            
+
+          echo env.production: ${{ env.production }}
+          echo env.production == true: ${{ env.production == true }}
+          if [ ${{ env.production }} ]; then
+            echo production...
+            func_export_ipa "../../exportOptionsAppStore.plist" ApprovalMax_AppStore_"$version".ipa
+            func_export_ipa "../../exportOptionsAdHoc.plist" ApprovalMax_AdHoc_"$version".ipa
+          else
+            echo develop...
+            func_export_ipa "../../exportOptionsAmaxdevAdHoc.plist" ApprovalMax_develop_adHoc_"$version".ipa
+          fi          
+          echo completed...
+          
+          
+          
