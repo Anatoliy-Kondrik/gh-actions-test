@@ -6,10 +6,21 @@ on:
       user_name:
         required: true
         type: string  
+      flag1: 
+        required: true
+        type: boolean  
+      flag2: 
+        required: true
+        type: boolean 
+
 
 env:
   user_name1: ${{ github.event.inputs.user_name }}
   user_name2: ${{ inputs.user_name }}
+  flag11: ${{ github.event.inputs.flag1 }}
+  flag12: ${{ inputs.flag1 }}
+  flag21: ${{ github.event.inputs.flag2 }}
+  flag22: ${{ inputs.flag2 }}
 
 jobs:
   contexts:
@@ -20,3 +31,7 @@ jobs:
           echo inputs.user_name ${{ inputs.user_name }}
           echo env.user_name1 ${{ env.user_name1 }}
           echo env.user_name2 ${{ env.user_name2 }}
+          echo github.event.inputs.flag11 ${{ github.event.inputs.flag1 }}
+          echo inputs.flag12 ${{ inputs.flag1 }}
+          echo github.event.inputs.flag2 ${{ github.event.inputs.flag2 }}
+          echo inputs.flag2 ${{ inputs.flag2 }}
