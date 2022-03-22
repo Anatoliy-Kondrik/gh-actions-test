@@ -17,6 +17,8 @@ on:
 env:
   user_name1: ${{ github.event.inputs.user_name }}
   user_name2: ${{ inputs.user_name }}
+  flag1: ${{ inputs.flag1 }}
+  flag2: ${{ inputs.flag2 }}
   flag11: ${{ github.event.inputs.flag1 }}
   flag12: ${{ inputs.flag1 }}
   flag21: ${{ github.event.inputs.flag2 }}
@@ -47,3 +49,16 @@ jobs:
           echo inputs.flag2 == true: ${{ inputs.flag2 == true }}
           echo inputs.flag2 == false: ${{ inputs.flag2 == false }}
           echo inputs.flag2 ${{ inputs.flag2 }}
+          echo 
+          echo flag1: ${{ env.flag1 }}
+          echo env.flag1: ${{ env.flag1 }}
+          echo env.flag1 == true: ${{ env.flag1 == true }}
+          if [ ${{ env.flag1 }} ]; then
+            echo production...
+          else
+            echo develop...
+          fi
+          echo completed.          
+          echo flag1: ${{ env.flag1 }}
+          echo env.flag1: ${{ env.flag1 }}
+          echo -----------------------
