@@ -55,6 +55,10 @@ jobs:
           mkdir ./${{ env.dir }}
           ls          
           echo ....3
+          cd ./${{ env.dir }}
+          pwd
+          echo ....4
+          
           echo          
           echo github.event.inputs.user_name ${{ github.event.inputs.user_name }}
           echo inputs.user_name ${{ inputs.user_name }}
@@ -109,13 +113,14 @@ jobs:
           echo flag1: ${{ env.flag1 }}
           echo env.flag1: ${{ env.flag1 }}
           echo -----------------------
+          pwd
 
   joba1:
     runs-on: ubuntu-latest
     needs: [contexts]
-    defaults:
-      run:
-        working-directory: "${{ env.dir }}"
+#     defaults:
+#       run:
+#         working-directory: "${{ env.dir }}"
     steps:
       - run: |          
           pwd
