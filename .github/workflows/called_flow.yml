@@ -13,6 +13,9 @@ on:
         required: true
         type: boolean 
 
+defaults:
+ run:
+  working-directory: ./special_work_dir
 
 env:
   user_name1: ${{ github.event.inputs.user_name }}
