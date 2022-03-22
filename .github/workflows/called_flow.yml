@@ -29,7 +29,8 @@ env:
 
 defaults:
   run:
-    working-directory: "${{ env.dir }}"
+    working-directory: ${dir}
+#    working-directory: "${{ env.dir }}"  # Unrecognized named-value: 'env'. Located at position 1 within expression: env.dir
 #   working-directory: "${{ inputs.dir }}"  # Unrecognized named-value: 'inputs'. Located at position 1 within expression: inputs.dir
 #   working-directory: ${{ inputs.dir }}   # Unrecognized named-value: 'inputs'. Located at position 1 within expression: inputs.dir
 #   working-directory: ${dir}               # special_work_dir
