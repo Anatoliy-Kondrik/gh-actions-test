@@ -24,12 +24,12 @@ jobs:
     steps:
       - run: |
           pwd
-          echo production: ${{ env.production }}
-          echo env.flag1: ${{ env.flag1 }}
-          echo env.flag2: ${{ env.flag2 }}
-          echo inputs.production: ${{ inputs.production }}
-          echo inputs.flag1: ${{ inputs.flag1 }}
-          echo inputs.flag2: ${{ inputs.flag2 }}
+          echo production ${{ env.production }}
+          echo env.flag1 ${{ env.flag1 }}
+          echo env.flag2 ${{ env.flag2 }}
+          echo inputs.production ${{ inputs.production }}
+          echo inputs.flag1 ${{ inputs.flag1 }}
+          echo inputs.flag2 ${{ inputs.flag2 }}
           if [ ${{ env.production }} ]; then
             echo 1-production...
             echo 1-PRODUCTION
@@ -56,7 +56,15 @@ jobs:
     steps:
       - run: |
           pwd
-          echo production: ${{ env.production }}
+
+          echo production ${{ env.production }}
+          echo env.flag1 ${{ env.flag1 }}
+          echo env.flag2 ${{ env.flag2 }}
+          echo inputs.production ${{ inputs.production }}
+          echo inputs.flag1 ${{ inputs.flag1 }}
+          echo inputs.flag2 ${{ inputs.flag2 }}
+          echo env.production == true: ${{ env.production == true }}
+          
           if [ ${{ env.production }} ]; then
             echo 1-production...
             echo 1-PRODUCTION
@@ -82,8 +90,6 @@ jobs:
             echo func_export_ipa $1 $2
           }            
 
-          echo env.production: ${{ env.production }}
-          echo env.production == true: ${{ env.production == true }}
           if [ ${{ env.production }} ]; then
             echo production...
             func_export_ipa "../../exportOptionsAppStore.plist" ApprovalMax_AppStore_.ipa
