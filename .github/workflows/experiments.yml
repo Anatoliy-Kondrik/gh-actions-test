@@ -76,18 +76,18 @@ jobs:
           fi      
 
           function func_export_ipa {
-            echo func_export_ipa ($1, $2)
+            echo func_export_ipa $1 $2
           }            
 
           echo env.production: ${{ env.production }}
           echo env.production == true: ${{ env.production == true }}
           if [ ${{ env.production }} ]; then
             echo production...
-            func_export_ipa "../../exportOptionsAppStore.plist" ApprovalMax_AppStore_"$version".ipa
-            func_export_ipa "../../exportOptionsAdHoc.plist" ApprovalMax_AdHoc_"$version".ipa
+            func_export_ipa "../../exportOptionsAppStore.plist" ApprovalMax_AppStore_.ipa
+            func_export_ipa "../../exportOptionsAdHoc.plist" ApprovalMax_AdHoc_.ipa
           else
             echo develop...
-            func_export_ipa "../../exportOptionsAmaxdevAdHoc.plist" ApprovalMax_develop_adHoc_"$version".ipa
+            func_export_ipa "../../exportOptionsAmaxdevAdHoc.plist" ApprovalMax_develop_adHoc_.ipa
           fi          
           echo completed...
           
