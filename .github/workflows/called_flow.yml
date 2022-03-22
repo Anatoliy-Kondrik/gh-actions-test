@@ -1,0 +1,22 @@
+name: called_flow
+
+on:
+  workflow_call:
+    inputs:
+      user_name:
+        required: true
+        type: string  
+
+env:
+  user_name1: ${{ github.event.inputs.user_name }}
+  user_name2: ${{ inputs.user_name }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo github.event.inputs.user_name ${{ github.event.inputs.user_name }}
+          echo inputs.user_name ${{ inputs.user_name }}
+          echo env.user_name1 ${{ env.user_name1 }}
+          echo env.user_name2 ${{ env.user_name2 }}
