@@ -1,5 +1,5 @@
 
-name: build_ssl
+name: build_android_ssl
 
 on:
   workflow_dispatch:
@@ -11,13 +11,11 @@ jobs:
       - name: checkout ssl repo
         run: |
           # git clone -b <branch> <remote_repo>
-          git clone --bare -b "refs/heads/OpenSSL_1_1_1-stable" https://github.com/openssl/openssl.git
+          git clone --bare -b "OpenSSL_1_1_1-stable" https://github.com/openssl/openssl.git
           echo clone completed
           echo 
           ls
             
-          #uses: actions/checkout@v2
-          #with:
       
 #       - name: build
 #         run: |
