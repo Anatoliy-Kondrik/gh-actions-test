@@ -1,0 +1,88 @@
+
+name: build_ssl
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout ssl repo
+        run: |
+          # git clone -b <branch> <remote_repo>
+          git clone --bare -b "refs/heads/OpenSSL_1_1_1-stable" https://github.com/openssl/openssl.git
+          echo clone completed
+          echo 
+          ls
+            
+          #uses: actions/checkout@v2
+          #with:
+      
+#       - name: build
+#         run: |
+#         # Set the target architecture
+#         # Can be android-arm, android-arm64, android-x86, android-x86_64 etc
+
+#         android_arc=arm  #arm arm64 x86 x86_64
+#         #ssldir=1.1.1d
+#         sslsourcesdir=sources
+#         sslversion=1.1.1  #1.1.1d
+#         sosuffix=_1_1.so
+
+#         echo ====================================
+#         echo android_arc=$android_arc
+#         echo sslsourcesdir=$sslsourcesdir
+#         echo sosuffix=$sosuffix
+#         echo ====================================
+
+#         pwd
+#         cd $sslsourcesdir
+#         pwd
+
+
+#         ANDROID_NDK_HOME=%android_ndk2% #"/Users/Shared/develop/android-ndk-r20b/"
+#         export ANDROID_NDK_HOME=%android_ndk2% #"/Users/Shared/develop/android-ndk-r20b/"
+#         export PATH=%android_ndk2%/"toolchains/llvm/prebuilt/darwin-x86_64/bin/":$PATH
+#          #"/Users/Shared/develop/android-ndk-r20b/toolchains/llvm/prebuilt/darwin-x86_64/bin/":$PATH
+
+#         build_android_for_arc() {
+#           echo ====================== build for $1 begin ================================
+#           android_arc=$1
+#           ./Configure shared android-$android_arc -D__ANDROID_API__=21
+#           make clean
+#           make SHLIB_VERSION_NUMBER= SHLIB_EXT=$sosuffix build_libs
+#           mkdir -p ../buildres_${sslversion}/${android_arc}/
+#           cp libcrypto$sosuffix ../buildres_${sslversion}/${android_arc}/
+#           cp libssl$sosuffix ../buildres_${sslversion}/${android_arc}/
+#           echo =========================== $1 completed ==========================
+#         }
+
+#         build_win_for_arc() {
+#           echo ====================== build for $1 begin ================================
+#           win_arc=$1
+#           ./Configure shared $win_arc no-idea no-mdc2 no-rc5
+#           make clean
+#           make SHLIB_VERSION_NUMBER= SHLIB_EXT=$sosuffix build_libs
+#           mkdir -p ../buildres_${sslversion}/${win_arc}/
+#           cp libcrypto$sosuffix ../buildres_${sslversion}/${win_arc}/
+#           cp libssl$sosuffix ../buildres_${sslversion}/${win_arc}/
+#           echo =========================== $1 completed ==========================
+#         }
+
+#         #build_win_for_arc mingw
+#         #build_win_for_arc mingw64
+
+#         build_android_for_arc arm 
+#         build_android_for_arc arm64 
+#         build_android_for_arc x86 
+#         build_android_for_arc x86_64
+
+
+#         # ./Configure shared android-$android_arc -D__ANDROID_API__=21
+#         # make clean
+#         # make SHLIB_VERSION_NUMBER= SHLIB_EXT=$sosuffix build_libs
+#         # mkdir -p ../buildres_${sslversion}/${android_arc}/
+#         # cp libcrypto$sosuffix ../buildres_${sslversion}/${android_arc}/
+#         # cp libssl$sosuffix ../buildres_${sslversion}/${android_arc}/
+
