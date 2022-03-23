@@ -11,18 +11,17 @@ jobs:
       - name: checkout ssl repo
         run: |
           pwd
+          
+          mkdir sources
+          cd sources
+          pwd
+          
           # git clone -b <branch> <remote_repo>
-          git clone --bare -b "OpenSSL_1_1_1-stable" https://github.com/openssl/openssl.git
+          git clone -b "OpenSSL_1_1_1-stable" https://github.com/openssl/openssl.git
           echo clone completed
           echo 
           ls
           
-          echo 
-          cd openssl.git
-          pwd
-          ls
-          
-            
       
 #       - name: build
 #         run: |
