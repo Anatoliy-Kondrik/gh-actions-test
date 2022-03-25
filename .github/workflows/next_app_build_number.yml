@@ -1,0 +1,52 @@
+name: next_app_build_number
+on:
+  workflow_call:
+    inputs:
+      need_increment:
+        description: "Do workflow need to increase the counter or just return the current value"
+        required: true
+        type: boolean
+    secrets:        
+      current_app_build_number:
+        description: ""
+        required: true
+    outputs:
+      app_build_number:
+        description: "App build version (Revision is needed. Now it takes a constant from the Secret context.)"
+        value: ${{ jobs.next.outputs.app_build_number }}  
+
+jobs:
+  next:
+    runs-on: [self-hosted, mobile]
+    outputs:
+      app_build_number: ${{ steps.step1.outputs.app_build_number }}    
+    steps:
+      - id: step1    
+        run: |
+          echo Warning! Const used...
+          echo need_increment= ${{ inputs.need_increment }}
+          
+          n=${{ secrets.current_app_build_number }}
+          echo n= "$n"
+          n=$((n+1))
+          echo n= "$n"
+          echo "::set-output name=app_build_number::'$n'"
+# =============== Legacy ====================
+# jobs:
+#   job1:
+#     runs-on: [self-hosted, mobile]
+#     outputs:
+#       am_build_number: ${{ steps.step1.outputs.am_build_number }}    
+#     steps:
+#       - id: step1    
+#         run: |
+#           echo nothing needs to be done, only the build counter is incremented
+#           echo "::set-output name=am_build_number::${{ github.run_number }}"
+#           echo job1 completed 
+          
+#   job2:
+#     runs-on: [self-hosted, mobile]
+#     needs: job1          
+#     steps:    
+#       - run: |
+#           echo am_build_number= ${{needs.job1.outputs.am_bu
